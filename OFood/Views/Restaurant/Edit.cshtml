@@ -1,0 +1,64 @@
+﻿@model OFood.Data.Models.Restaurant
+
+<h3 class="m-2">Update Restaurant Data</h3>
+
+
+   <section>
+    <div class="container">
+        @Html.AntiForgeryToken()
+        <form method="post" class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-9">
+
+                <div class="card" style="border-radius: 15px;">
+                    <div class="card-body">
+
+                        <div class="row align-items-center pt-4 pb-3">
+                            <div class="col-md-3 ps-5">
+
+                                <label asp-for="Name" class="mb-0"></label>
+
+                            </div>
+                            <div class="col-md-9 pe-5">
+
+                                <input asp-for="Name" type="text" class="form-control form-control-lg" value="@Model.Name" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+
+
+                            </div>
+                        </div>
+
+                        
+                        <hr class="mx-n3"><div class="row align-items-center pt-4 pb-3">
+                            <div class="col-md-3 ps-5">
+
+                                <label asp-for="Cuisine" class="mb-0"></label>
+
+                            </div>
+                            <div class="col-md-9 pe-5">
+
+                                <select asp-for="Cuisine" type="text" class="form-control form-control-lg">
+                                    <option value="0">None</option>
+                                    <option value="1">Italian</option>
+                                    <option value="2">Indian</option>
+                                    <option value="3">French</option>
+                                </Select>
+                                <span asp-validation-for="Cuisine" class="text-danger"></span>
+
+
+                            </div>
+                        </div>
+
+                        
+                        <hr class="mx-n3">
+                        
+                        <div class="px-5 py-4">
+                            <button type="submit" class="btn btn-success w-50" asp-action="Edit" asp-controller="Restaurant">Update</button>
+                        </div>
+                         @Html.ActionLink("Back to List", "Index")
+                    </div>
+                    
+                </div>
+            </div>
+       </form>
+    </div>
+</section>
