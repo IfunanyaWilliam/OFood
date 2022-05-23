@@ -32,15 +32,14 @@ namespace OFood.Data.Services
         {
             restaurant.Id = restaurants.Max(r => r.Id) + 1;
             restaurants.Add(restaurant);
-        }
+        } 
 
-        public Restaurant Update(Restaurant restaurant)
+        public void Update(Restaurant restaurant)
         {
             var updatedRestaurant = restaurants.Where(r => r.Id == restaurant.Id).FirstOrDefault();
             updatedRestaurant.Id = restaurant.Id;
             updatedRestaurant.Name = restaurant.Name;
             updatedRestaurant.Cuisine = restaurant.Cuisine;
-            return updatedRestaurant;
 
             //Another implementation
             //var existingRestaurant = Get(restaurant.Id);
@@ -49,7 +48,6 @@ namespace OFood.Data.Services
             //    existingRestaurant.Name = restaurant.Name;
             //    existingRestaurant.Cuisine = restaurant.Cuisine;
             //}
-            //return existingRestaurant;
         }
     }
 }

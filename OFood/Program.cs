@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 //Add service for Restaurant
-builder.Services.AddSingleton<IRestaurantData, InMemoryRestaurantData>();
+builder.Services.AddSingleton<IRestaurantData, SqlRestaurantData>();
 
 var app = builder.Build();
 

@@ -12,7 +12,7 @@ namespace OFood.Data.Services
         IEnumerable<Restaurant> GetAll();
         Restaurant Get(int id);
         void Add(Restaurant restaurant);
-        Restaurant Update(Restaurant restaurant);
+        void Update(Restaurant restaurant);
 
     }
 }
