@@ -49,5 +49,15 @@ namespace OFood.Data.Services
             //    existingRestaurant.Cuisine = restaurant.Cuisine;
             //}
         }
+
+        public void Delete(int id)
+        {
+            var restaurant = restaurants.Where(r => r.Id == id).FirstOrDefault(); ;
+            if (restaurant is not null)
+            {
+                restaurants.Remove(restaurant);
+            }
+        }
+
     }
 }

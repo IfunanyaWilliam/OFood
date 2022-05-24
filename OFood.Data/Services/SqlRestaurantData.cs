@@ -39,5 +39,16 @@ namespace OFood.Data.Services
             entry.State = EntityState.Modified; //Check if entity is modified
             _db.SaveChanges();
         }
+
+       
+        public void Delete(int id)
+        {
+            var restaurant = _db.Restaurants.Find(id);
+            if(restaurant is not null)
+            {
+                _db.Remove(restaurant);
+                _db.SaveChanges();
+            }
+        }
     }
 }

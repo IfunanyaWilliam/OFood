@@ -13,6 +13,7 @@ namespace OFood.Data.Services
         Restaurant Get(int id);
         void Add(Restaurant restaurant);
         void Update(Restaurant restaurant);
+        void Delete(int id);
 
     }
 }

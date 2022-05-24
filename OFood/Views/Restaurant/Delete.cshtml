@@ -1,0 +1,29 @@
+﻿@model OFood.Data.Models.Restaurant
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>Delete</h3>
+
+<h5>Are you sure you want to delete @Model.Name restaurant</h5>
+
+<div>
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+
+    <form method="post">
+        @Html.AntiForgeryToken()
+        <div class="px-5 py-4">
+            <button type="submit" class="btn btn-success w-25 fo" asp-action="Delete" asp-controller="Restaurant">Delete</button>             
+        </div>
+        @Html.ActionLink("Back to List", "Index")
+    </form>
+
+</div>

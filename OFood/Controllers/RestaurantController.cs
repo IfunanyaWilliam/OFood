@@ -69,7 +69,33 @@ namespace OFood.Controllers
                 return View();
             }
             _db.Update(restaurant);
+            //Pass a message to the user of successful edit
+            TempData["Message"] = "Restaurant Successfully Modified";
             return RedirectToAction("Details", new { Id = restaurant.Id });
         }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var model = _db.Get(id);
+            if(model == null)
+            {
+                return View("Not Found");
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(int id, IFormCollection form)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            _db.Delete(id);
+            return RedirectToAction("Index");
+        }
+
     }
 }

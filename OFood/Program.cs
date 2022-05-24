@@ -1,9 +1,16 @@
+using Microsoft.EntityFrameworkCore;
 using OFood.Data.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//Add services for EntityFramework
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+    
 
 //Add service for Restaurant
 builder.Services.AddScoped<IRestaurantData, SqlRestaurantData>();
